@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;500;600;700&display=swap');
+
+:root {
+    --text-color: #ffffff;
+    --separator-color: #24385b;
+    --tab-color: #03091e;
+    --background-color: #020a29;
+    --modal-color: #071242;
+    --card-color: #2f7bfd;
+    --btn-color: #a2e234;
+}
+
+
+/* CSS RESET */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+}   
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+button,
+input {
+  border: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+input[type='text'],
+input[type='number'] {
+  cursor: text;
+}
+
+/* Hide scroll input button*/
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}   
+
+/* Firefox */
+input[type=number] {
+    appearance: auto;
+    -moz-appearance: textfield;
+}
+
+
+/* HEADER */
+
+header {
+    background-color: var(--tab-color);
+    width: 100%;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: thin solid var(--separator-color);
+}
+
+
+/* MAIN */
+
+main {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: 100%;
+}
+
+.herramientas {
+    width: 100%;
+    text-align: right;
+    justify-content: right;
+    margin-right: 1vw;
+}
+
+button {
+    margin: 2vh 1vh;
+    background-color: var(--btn-color);
+    color: var(--background-color);
+    padding: 1.5vh;
+}
+
+#herramienta-editar {
+    background-color: #F26250;
+}
+
+button:hover {
+    filter: brightness(120%);
+}
+
+
+/* BOOKS */
+
+.book-container {
+    padding: 5vh;
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 30% 30% 30%;
+    grid-auto-rows: 35vh;
+    gap: 25px;
+}
+
+.book {
+    background-color: var(--card-color);
+    max-height: 35vh;
+    padding: 3vh;
+}
+
+.book * {
+    margin: 10px;
+}
+
+.book:hover {
+    filter: brightness(120%);
+}
+
+.book-editing {
+    cursor: pointer;
+    background-color: #a1a1a1;
+}
+
+.book-to-remove {
+    background-color: #F26250;
+}
+
+.tool-edit-active:hover {
+    filter: brightness(120%);
+}
+
+.editar_libro {
+    background-color: #F7D064 !important;
+}
+
+/* SWITCH LEIDO */
+
+.switch {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.switch-card {
+    justify-content: flex-end;
+}
+
+.switch-lbl{
+    display: inline-block;
+    width: 65px;
+    height: 33px;
+    border-radius: 100px;
+    background: linear-gradient(135deg,#29323C,#2B5876,#4E4376);
+    box-shadow: 0px 0px 5px 1px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+    user-select: none;
+    margin-left: 10px;
+}
+
+.switch-lbl::after {
+    content: '';
+    background-color: #EBEDEF;
+    border-radius: 50%;
+    display: block;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    top: 4px;
+    left: 4px;
+    transition: 0.3s;
+}
+
+.input-switch:checked + .switch-lbl::after {
+    left: 35px;
+}
+
+.input-switch:checked + .switch-lbl {
+    background: linear-gradient(135deg,#42E695,#3BB2B8);
+}
+
+.input-switch{
+    display: none;
+}
+
+
+/* FOOTER */
+
+footer {
+    background-color: var(--tab-color);
+    border-top: thin solid var(--separator-color);
+    text-align: center;
+    min-height: 10vh;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modales */
+
+.modal-agregar-libro{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: grid;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .3s .2s;
+    --transform: translateY(-100vh);
+    --transition: transform .3s;
+}
+
+.modal--show{
+    opacity: 1;
+    pointer-events: unset;
+    transition: opacity .2s;
+    --transform: translateY(0);
+    --transition: transform .2s .2s;
+}
+
+.modal-agregar-libro-container {
+    margin: auto;
+    width: 40%;
+    max-height: 90%;
+    background-color: var(--modal-color);
+    padding: 3em 2.5em;
+    display: grid;
+    gap: 1em;
+    place-items: center;
+    grid-auto-columns: 100%;
+    transform: var(--transform);
+    transition:var(--transition);
+    border: 1px solid #ffffff;
+}
+
+#modal-close-btn {  
+    position: absolute;
+    align-self: flex-start;
+    justify-self: flex-end;
+    text-decoration: none;
+    color: #fff;
+    background-color: #F26250;
+    font-size: 0.8em;
+    padding: 0.5em 1em;
+    border: 1px solid;
+    font-weight: bolder;
+    transition: background-color .2s;
+    cursor: pointer;
+}
+
+.modal-agregar-libro-form {
+    display: grid;
+    gap: 1.3em;
+    grid-template-columns: 100%;
+}
+
+.modal-agregar-libro-form input {
+    width: 100%;
+    color:black;
+    padding: 3px;
+    font-weight: 500;
+    margin: 5px 0px;
+}

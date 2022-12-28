@@ -1,0 +1,55 @@
+<DOCTYPE html>
+<html lang="es">
+<head>
+    <title>BookApp</title>
+    <link rel="icon" type="image/x-icon" href="/BookApp/book_icon.ico">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header> <h1>BookApp</h1> </header>
+    <main>
+        <div class="herramientas">
+            <button id="herramienta-agregar">Agregar</button>
+            <button id="herramienta-editar">Borrar</button>
+        </div>
+        <div class="book-container">
+        </div>
+    </main>   
+    <section class="modal-agregar-libro">
+        <div class="modal-agregar-libro-container">
+            <span id="modal-close-btn">X</span>
+            <form class="modal-agregar-libro-form">
+                <label for="nombre-libro">
+                    Libro:
+                    <input type="text" name="nombre-libro" id="nombre-libro" autocomplete="off">
+                </label>
+                
+                <label for="nombre-autor">
+                    Autor:
+                    <input type="text" name="nombre-autor" id="nombre-autor" autocomplete="off">
+                </label>
+                
+                <label for="cantidad-paginas">
+                    Páginas:
+                    <input type="number" name="cantidad-paginas" id="cantidad-paginas" autocomplete="off">
+                </label>
+                
+                <div class="switch switch-card">
+                    <span>Leido</span>
+                    <input class="input-switch input-switch-card" type="checkbox" name="read" id="switch-modal">
+                    <label class="switch-lbl" for="switch-modal"></label>
+                </div>
+                
+                <button type="submit">Agregar</button>
+            </form>
+        </div>
+    </section>
+    <footer>
+        <p>Copyright © 2022 ValenAquino</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html> 
